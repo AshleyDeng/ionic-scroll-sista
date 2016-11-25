@@ -78,8 +78,10 @@
           function init () {
             var activeView;
 
-            cachedHeader = body.querySelector('[nav-bar="cached"] .bar-header');
-            activeHeader = body.querySelector('[nav-bar="active"] .bar-header');
+            var sideMenu = body.querySelector('ion-side-menu-content');
+            var parent = sideMenu ? sideMenu : body;
+            cachedHeader = parent.querySelector('[nav-bar="cached"] .bar-header');
+            activeHeader = parent.querySelector('[nav-bar="active"] .bar-header');
 
             if (!activeHeader) {
               return;
