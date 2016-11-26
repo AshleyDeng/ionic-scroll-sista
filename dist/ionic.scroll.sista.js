@@ -88,6 +88,9 @@
             }
 
             headerHeight = activeHeader.offsetHeight;
+            if(ionic.Platform.isIOS()) {
+              headerHeight -= 20; // account 20px for the ios status bar
+            }
             contentTop = headerHeight;
 
             //since some people can have nested tabs, get the last tabs
@@ -277,9 +280,13 @@
             e = e.originalEvent || e;
 
             var duration = 0;
-            var scrollTop = e.detail.scrollTop;
+            var scrollTop = e.detail?e.detail.scrollTop:e.target.scrollTop;
 
             y = scrollTop >= 0 ? Math.min(defaultEnd, Math.max(0, y + scrollTop - prevScrollTop)) : 0;
+
+            if (ionic.Platform.isIOS() && y > headerHeight) {
+              y = headerHeight;
+            }
 
             //if we are at the bottom, animate the header/tabs back in
             if (scrollView.getScrollMax().top - scrollTop <= contentTop) {
@@ -299,7 +306,7 @@
           });
 
         }
-      }
+      };
     }]);
 
 })(angular, ionic);
