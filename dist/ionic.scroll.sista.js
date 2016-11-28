@@ -78,10 +78,8 @@
           function init () {
             var activeView;
 
-            var sideMenu = body.querySelector('ion-side-menu-content');
-            var parent = sideMenu ? sideMenu : body;
-            cachedHeader = parent.querySelector('[nav-bar="cached"] .bar-header');
-            activeHeader = parent.querySelector('[nav-bar="active"] .bar-header');
+            cachedHeader = $document[0].body.querySelector('[nav-bar="cached"] ion-header-bar.bar-positive');
+            activeHeader = $document[0].body.querySelector('[nav-bar="active"] ion-header-bar.bar-positive');
 
             if (!activeHeader) {
               return;
