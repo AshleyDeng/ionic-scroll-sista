@@ -286,12 +286,6 @@
               y = headerHeight;
             }
 
-            //if we are at the bottom, animate the header/tabs back in
-            if (scrollView.getScrollMax().top - scrollTop <= contentTop) {
-              y = 0;
-              duration = defaultDuration;
-            }
-
             prevScrollTop = scrollTop;
 
             //if previous and current y are the same, no need to continue
