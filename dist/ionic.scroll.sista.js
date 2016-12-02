@@ -88,19 +88,6 @@
             headerHeight = activeHeader.offsetHeight;
             contentTop = headerHeight;
 
-            //since some people can have nested tabs, get the last tabs
-            tabs = body.querySelectorAll('.tabs');
-            tabs = tabs[tabs.length - 1];
-            if (tabs) {
-              tabsHeight = tabs.offsetHeight;
-              if (tabs.parentNode.classList.contains('tabs-top')) {
-                hasTabsTop = true;
-                contentTop += tabsHeight;
-              } else if (tabs.parentNode.classList.contains('tabs-bottom')) {
-                hasTabsBottom = true;
-              }
-            }
-
             //subheader
             //since subheader is going to be nested in the active view, get the closest active view from $element and
             activeView = getParentWithAttr($element[0], 'nav-view', 'active');
