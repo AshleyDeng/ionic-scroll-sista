@@ -230,15 +230,6 @@
           });
 
           /**
-           * Scroll to the top when entering to reset then scrollView scrollTop. (prevents jumping)
-           */
-          $scope.$parent.$on('$ionicView.beforeEnter', function () {
-            if (scrollView) {
-              scrollView.scrollTo(0, 0);
-            }
-          });
-
-          /**
            * Ionic sets the active/cached nav-bar AFTER the afterEnter event is called, so we need to set a small
            * timeout to let the nav-bar logic run.
            */
